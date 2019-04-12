@@ -1,0 +1,227 @@
+\documentclass[11pt]{article}
+%\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[scaled=1.0]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% margins >=2cm
+%\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[a4paper,top=2.1cm,bottom=1.5cm,right=2cm,left=2cm]{geometry}
+\footskip 18pt
+
+%\parindent=0.0in
+%\parskip=5pt
+
+\usepackage{graphicx, color, tabularx, multirow, setspace, url,titling}
+\usepackage{amsmath,bm}
+\usepackage{multicol}
+\setlength{\columnsep}{0.8cm}
+%\usepackage{wrapfig}
+%\usepackage[justification=centering]{caption,subfig}
+\usepackage[justification=centering]{subfig}
+%\renewcommand{\baselinestretch}{1.6}
+
+% Crossing out and new text in different colours for different authors
+\usepackage{xparse}
+\usepackage{soul,soul}
+\usepackage{xcolor}
+
+\newcommand{\HWnew}[1]{#1} %{\color{red}#1}}
+\newcommand{\ICnew}[1]{} %{\color{blue}#1}}
+\newcommand{\HWcomment}[1]{}%{{\color{red}{#1}}}
+\newcommand{\ICcomment}[1]{}% {\it\color{blue}[#1]}}
+\newcommand{\HWcrossOut}[1]{}
+\newcommand{\ICcrossOut}[1]{}
+
+\usepackage{float}
+
+% make floats take up less space
+\setlength{\textfloatsep}{1ex}
+\setlength{\abovecaptionskip}{0.1ex}
+%% \belowcaptionskip: space below caption
+
+% tabularx stuff
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}p{#1}}
+%\renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}m{#1}}
+
+%%% modifications to make article style more compact
+\makeatletter
+
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+  {\vskip 1em}
+
+\newenvironment{figurehere}
+  {\def\@captype{figure}}
+  {\vskip 1em}
+
+\def\@part[#1]#2
+{%
+    \refstepcounter{part}%
+    {%
+        \parindent \z@ \raggedright \interlinepenalty \@M
+        \normalfont \Large\bfseries\raggedright
+        \partname\nobreakspace\thepart : \nobreakspace #2 %\markboth{}{}\par
+    }%
+    \nobreak \vskip 1.3ex \@afterheading%
+}
+\renewcommand\section
+{%
+    \@startsection {section}{1}{\z@}{-1ex \@plus -0.5ex \@minus -.1ex}%
+   {0.5ex \@plus.1ex}{\normalfont\large\bfseries\raggedright}%
+}
+\renewcommand\subsection%
+{%
+    \@startsection {subsection}{1}{\z@}{-1ex \@plus -0.5ex \@minus-.1ex}%
+   {0.5ex \@plus .1ex}{\bfseries\raggedright}%
+}
+%\renewcommand\subsubsection
+%{%
+%    \@startsection {subsubsection}{1}{\z@}{-0.5ex \@plus -1ex \@minus -.2ex}%
+%   {0.1ex \@plus .1ex}{\normalfont\it\raggedright}
+%}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                    {0.5ex \@plus0.5ex \@minus.1ex}%
+                                    {-0.5em}%
+                                    {\normalfont\normalsize\bfseries}}
+
+% subsubsections are actually work packages
+\newcommand\workPackage%
+{%
+    \renewcommand{\thesubsubsection}{WP\arabic{subsubsection}}%
+    \@startsection{subsubsection}{3}{\z@}%
+    {-1ex \@plus -0.5ex \@minus -.1ex}%
+    {0.5ex \@plus .1ex}{\normalfont\bf\raggedright}%
+}
+
+\def\@maketitle
+{%
+  \begin{center}%
+  \let \footnote \thanks
+    {\Large\bf \@title \par}%
+    \vskip 0.5em%
+    {\large
+      \lineskip 1em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 0.5em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  %\vskip 1.5em
+}
+% Reduce the spacing around equations
+\AtBeginDocument{%
+ \abovedisplayskip=6pt plus 6pt minus 4pt
+ \belowdisplayskip=6pt plus 6pt minus 3pt
+ \abovedisplayshortskip=0pt plus 3pt
+ \belowdisplayshortskip=7pt plus 3pt minus 4pt
+}
+
+% make list and enumerate more compact
+\usepackage{tweaklist}
+\renewcommand{\itemhook}
+{
+    \setlength{\topsep}{3pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\partopsep}{0pt}
+    \setlength{\itemsep}{0pt}
+    \setlength{\labelwidth}{10pt}
+    \setlength{\leftmargin}{\labelwidth}
+}
+
+\renewcommand{\enumhook}
+{
+    \setlength{\topsep}{3pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\partopsep}{0pt}
+    \setlength{\itemsep}{3pt}
+    \setlength{\labelwidth}{10pt}
+    \setlength{\leftmargin}{\labelwidth}
+}
+
+\renewcommand{\deschook}
+{
+    \setlength{\topsep}{3pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\partopsep}{0pt}
+    \setlength{\itemsep}{0pt}
+    \setlength{\labelwidth}{0pt}
+    \setlength{\leftmargin}{\labelwidth}
+}
+
+% More control over description labels
+%\renewcommand{\descriptionlabel}[1]{\parbox{\leftmargin}{\raggedleft #1.~}}
+%\usepackage{expdlist,lipsum}
+
+\makeatother
+
+\renewcommand{\floatpagefraction}{0.95}
+
+\newcommand{\dprod} {\ensuremath{\,{\scriptscriptstyle \stackrel{\bullet}{{}}}\,}}
+\renewcommand{\vec}[1] {\ensuremath{\mathbf #1}}
+\newcommand{\eg}{{\it e.g.}}
+\newcommand{\ie}{{\it i.e.}}
+\newcommand{\de}{\ensuremath{^\circ}}
+
+% listings package for JeS box text
+\usepackage{listings}
+\lstset{
+breakindent=0em,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+tabsize=2,
+breaklines=true,
+breakatwhitespace=true,
+breakautoindent=true,
+linewidth=\textwidth,
+basicstyle=\rm
+}
+
+\newcommand{\lanina}{La Ni\~{n}a}
+\newcommand{\elnino}{El Ni\~{n}o}
+\newcommand{\nino}{Ni\~{n}o}
+
+% Bibliography stuff
+\usepackage[round,sort&compress]{natbib}
+%\usepackage[square,sort&compress,numbers,super]{natbib}
+
+\setlength{\bibsep}{0pt}
+\setlength{\bibhang}{6pt}
+
+%% modification to natbib to remove margin
+%\makeatletter
+%\renewcommand\NAT@bibsetnum[1]{\settowidth\labelwidth{\@biblabel{#1}}%
+%%   \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}%
+%   \setlength{\leftmargin}{0pt}\addtolength{\leftmargin}{0pt}%
+%   \setlength{\itemsep}{\bibsep}\setlength{\parsep}{\z@}%
+%   \setlength{\itemindent}{\bibindent}%
+%   \ifNAT@openbib
+%     \addtolength{\leftmargin}{\bibindent}%
+%     \setlength{\itemindent}{-\bibindent}%
+%     \setlength{\listparindent}{\itemindent}%
+%     \setlength{\parsep}{0pt}%
+%   \fi
+%}
+%\makeatother
+
+%% cite not in superscript
+\newcommand*{\citen}[1]{\cite{#1}}
+%\newcommand*{\citen}[1]{%
+%  \begingroup
+%    \romannumeral-`\x % remove space at the beginning of \setcitestyle
+%    \setcitestyle{numbers}%
+%    \cite{#1}%
+%  \endgroup   
+%}
+
+\begin{document}
+\sloppy
+
