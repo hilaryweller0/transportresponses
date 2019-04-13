@@ -17,7 +17,7 @@ We appreciate that the reviewer describes this as an ``excellent proposal'', ``t
 
 \subsubsection*{Responses to Reviewer 179276205}
 
-We appreciate that the reviewer described the topic as ``absolutely essential'', that the team ``knows exactly what is needed to progress this field'' and strongly recommended funding. We too appreciate our contact with the Met Office and ECMWF and our international links. They will be valuable to the project. 
+We appreciate that the reviewer described the topic as ``absolutely essential'', that the team ``knows exactly what is needed to progress this field'' and strongly recommended funding. We too appreciate our contact with the Met Office and ECMWF and our international links. They will be valuable to the project. We agree with the reviewer that the ``budget is modest and well justified''.
 
 \paragraph*{First we will respond to the points that the reviewer identified as strong:}
 
@@ -45,16 +45,36 @@ For the work related to unstructured grid modelling lead at Reading, we will use
 
 For the work on COSMIC advection lead by PI Kent, we will follow the approach used by the UK Met Office and use height above the ground as the vertical co-ordinate (equivalent to terrain following layers). WP2 describes how we will ensure stability in three dimensions, including over orography. The original COSMIC paper \cite[]{LLM96} described how to extend a one dimensional advection scheme to two dimensions, introducing cross terms for stability and to avoid splitting errors. We will extend this to three dimensions which will lead to a large number of cross terms. In WP2 we will find which cross terms are necessary to maintain stability and accuracy.
 
-\item \label{it:Kuhnlein} \todo[inline]{Respond to ``.Involvement of ECMWF (Christian K\"uhnlein) could be stronger''}
+\item \label{it:Kuhnlein} The reviewer states that the involvement of ECMWF could be stronger. While the proposal states that we will meet with K\"uhnlein twice per year, we also say that we will use some of their modelling tools and their letter of support says that they will ``collaborate closely'' and ``meet on a regular basis to discuss the results, and to coordinate our research''. The proposal requests funding for two visits per year for USW staff to visit ECMWF. The Reading staff will not need additional funding because ECMWF is in Reading. Reading staff will be more closely involved with ECMWF because the work on unstructured modelling will take place in Reading and that work will be done in collaboration with ECMWF. We anticipate that much of the close collaboration will be by email and this may need to be very frequent at times of intense activity using the ECMWF modelling tools. We plan to have two formal meetings per year with K\"uhnlein and his staff. However more communication will take place, either by email or in person if needed.
 
-\item \label{it:interlinkages} \todo[inline]{Respond to ``Project interlinkages not entirely clear (e.g. prospects of multifluid, and feedback to the Met Office and ECMWF models).
-More is maybe needed to achieve the anticipated impact: "A measure of success will be if the Met Office and ECMWF
-implement the ideas and results from this proposal into their new atmospheric models".''}
+\item \label{it:interlinkages} We welcome the opportunity to say more about interlinkages and impact and answer the points in turn:
+    \begin{enumerate}
+    \item Multi-fluid modelling of convection is in its infancy. Our mutli-fluid modelling  will not use ECMWF or Met Office models because OpenFOAM is better suited for this research. Multi-fluid research is part of the Met Office led Paracon project on convection demonstrating Met Office interest in this approach. It is unlikely that multi-fluid convection modelling will be implemented in the ECMWF or Met Office models during the lifetime of this project. I expect that this project will help to inform if and how operational centres implement multi-fluid convection modelling.
+    
+    \item The reviewer states that ``{\it More is maybe needed to achieve the anticipated impact: ``A measure of success will be if the Met Office and ECMWF implement the ideas and results from this proposal into their new atmospheric models''}''.
+    
+    WP1, WP2 and some of WP4 will make developments to the Met Office LFRic model, ensuring maximum chance that the research will see operational use. Other aspects of the project are more experimental and we do not know if the results will be useful for operational models -- there is an element of risk. However, with our close involvement with operational centres, we are confident that, the useful results that we produce will have impact and be implemented by others.
+    \end{enumerate}
 
 \end{enumerate}
 
-The reviewer found the proposal a bit dry and would have appreciated illustrations and examples. \todo[inline]{An example and illustration.}
+\begin{itemize}
+\item
+The reviewer found the proposal a bit dry and would have appreciated illustrations and examples. We welcome the opportunity to provide an illustrated example. Figure \ref{fig:CWPS17_fig7} shows results from \cite{CWPS17} of two simulations of a tracer being advected over a mountain range using a dimensionally split scheme and a multi-dimensional scheme with implicit time-stepping. Both simulations a horizontal Courant number of 1 but because of the grid distortions, the total Courant number is 2.96. Despite using COSMIC correction for cross terms, the dimensionally splits scheme does not treat advection over the severe mesh distortions accurately. The multi-dimensional scheme is more accurate for this test case and stable for this large Courant number. However the implicit time-stepping is more expensive than the flux-form semi-Lagrangian used for the COSMIC scheme. There is still work to do improving advection schemes.
 
+\begin{figure}
+\includegraphics[width=\linewidth]{ChenFig7.png}
+\caption{From figure 7 of \cite{CWPS17} with contours showing concentration of a tracer at three times begin advected over a mountain range on a highly distorted, terrain following grid. A dimensionally split, COSMIC scheme without a limiter is used for the left hand results and a second-order multi-dimensional scheme for unstructured grids is used for the results on the right. Colours and the max and min values show errors.}
+\label{fig:CWPS17_fig7}
+\end{figure}
+
+\todo[inline]{James, please feel free to replace this with some of your work. This is just a place holder. You can probably do something better.}
+
+\subsubsection*{Responses to Reviewer 167069074}
+
+
+
+\end{itemize}
 %\begin{multicols}{2}
 \renewcommand{\refname}{References}
 \bibliography{numerics}
