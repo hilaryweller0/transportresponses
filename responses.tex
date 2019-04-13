@@ -17,7 +17,9 @@ We appreciate that the reviewer describes this as an ``excellent proposal'', ``t
 
 \subsubsection*{Responses to Reviewer 179276205}
 
-We appreciate that the reviewer described the topic as ``absolutely essential'' and that the team ``knows exactly what is needed to progress this field''. We too appreciate our contact with the Met Office and ECMWF and our international links. They will be valuable to the project. We would also like to respond, first the points that the reviewer identified as strong:
+We appreciate that the reviewer described the topic as ``absolutely essential'', that the team ``knows exactly what is needed to progress this field'' and strongly recommended funding. We too appreciate our contact with the Met Office and ECMWF and our international links. They will be valuable to the project. 
+
+\paragraph*{First we will respond to the points that the reviewer identified as strong:}
 
 \begin{enumerate}
 
@@ -32,6 +34,26 @@ We appreciate that the reviewer described the topic as ``absolutely essential'' 
 \item \label{it:PImips} PI Kent's expertise in intercomparison projects will indeed be invaluable in evaluating the advection schemes that are developed. 
 
 \end{enumerate}
+
+\paragraph*{Next we will address the ``minor points of criticism'':}
+
+\begin{enumerate}
+
+\item \label{it:horizVert} We appreciate the opportunity to say more about the vertical discretisation.
+
+For the work related to unstructured grid modelling lead at Reading, we will use $z$ co-ordinates in the vertical and terrain following layers. This is a natural combination with an unstructured horizontal grid -- the grid is independent of the discretisation -- we are seeking a mesh independent discretisation. The stability will of course be dependent on the choice of terrain following layers. PI Weller has relevant experience in the different choices for discretisation over orography \cite[]{WS14,SW16,CWPS17,SWMD17}. For advection, stability of multi-dimensional schemes is relate to Courant number, hence the drive in the proposal to find better schemes for large Courant numbers. (For multi-dimensional schemes on unstructured grids, non-orthogonality is a problem when solving second-order wave equations rather than for advection).
+
+For the work on COSMIC advection lead by PI Kent, we will follow the approach used by the UK Met Office and use height above the ground as the vertical co-ordinate (equivalent to terrain following layers). WP2 describes how we will ensure stability in three dimensions, including over orography. The original COSMIC paper \cite[]{LLM96} described how to extend a one dimensional advection scheme to two dimensions, introducing cross terms for stability and to avoid splitting errors. We will extend this to three dimensions which will lead to a large number of cross terms. In WP2 we will find which cross terms are necessary to maintain stability and accuracy.
+
+\item \label{it:Kuhnlein} \todo[inline]{Respond to ``.Involvement of ECMWF (Christian K\"uhnlein) could be stronger''}
+
+\item \label{it:interlinkages} \todo[inline]{Respond to ``Project interlinkages not entirely clear (e.g. prospects of multifluid, and feedback to the Met Office and ECMWF models).
+More is maybe needed to achieve the anticipated impact: "A measure of success will be if the Met Office and ECMWF
+implement the ideas and results from this proposal into their new atmospheric models".''}
+
+\end{enumerate}
+
+The reviewer found the proposal a bit dry and would have appreciated illustrations and examples. \todo[inline]{An example and illustration.}
 
 %\begin{multicols}{2}
 \renewcommand{\refname}{References}
