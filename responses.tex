@@ -70,6 +70,8 @@ The reviewer found the proposal a bit dry and would have appreciated illustratio
 
 \todo[inline]{James, please feel free to replace this with some of your work. This is just a place holder. You can probably do something better.}
 
+\end{itemize}
+
 \subsubsection*{Responses to Reviewer 167069074}
 
 We are pleased that the reviewer thought that our work will deliver ``important contributions'', that our expertise is ideal and that the reviewer appreciated the ``strong support from the Met Office and ECMWF''. 
@@ -85,28 +87,34 @@ We are pleased that the reviewer thought that our work will deliver ``important 
     \item For the multi-fluid modelling the focus is on finding schemes that are stable and accurate for long time steps. Therefore we will compare simulations with long and short time steps. This evaluation is particularly straightforward as it is simple to calculate error metrics between simulations with the same spatial resolution. 
     \end{enumerate}
 
-\item Respond to \todo[inline]{It is quite surprising to me that there is only a \pounds 5K contribution in kind by the Met Office to the project and no project partner
-contribution from ECMWF. If the work is so central to the development of the new dynamical core of these models one
-would think that there would be a stronger in kind commitment. As a related comment, it would be helpful to have a clearer
-description of the interface between the work the agencies are actively pursuing and the proposed work and why the
-proposed work is needed but not a central plank of the new developments by the operational forecasters. The impact
-statement was also less than convincing in this regard. There was no real strategy proposed which was surprising given
-the stated importance to the agencies benefiting from the impact.}
+\item In contrast to the other reviewers, the reviewer was concerned that the contributions from the Met Office and ECMWF were insufficient. 
+This work is not a sub-contract from operational centres. We are exploring new, innovative approaches that could be too risky for an operational centre to commit significant resource to. Due to the importance of the work, both ECMWF and the Met Office have their own plans for developing a suitable advection scheme -- they are not completely reliant on this project. We will be involved in their plans -- comparing results and discussing new ideas, but we are not part of their teams, we are independent and will pursue our own ideas and we will take greater risks, spending more time on innovative approaches. We do not believe that we need to do more in our impact work -- if we find a better advection scheme that fits within the Met Office or ECMWF frameworks, it is very likely to be adopted due to the frequent communication between us and the importance of of the topic.
 
-This work is not a sub-contract from operational centres. We are exploring new, innovative approaches that could be too risky for an operational centre to commit significant resource to.
-
-\item Respond to \todo[inline]{I was less than clear about the roles of the USW staff in the work flow. There is no real description of this. The PDRA will work for the first 24 months so presumably only contributes to WP1 and WP2. Is the PI's 30% to cover the work in WP4?
+\item Respond to \todo[inline]{I was less than clear about the roles of the USW staff in the work flow. There is no real description of this. The PDRA will work for the first 24 months so presumably only contributes to WP1 and WP2. Is the PI's 30\% to cover the work in WP4?
 What is the role of the student mentioned, are they central to the WPs or add further value to the work programme? There
 is no real detail on this at all.}
 
-\item Respond to \todo[inline]{I find the 7 overseas conferences for a 3 year standard grant very excessive. It seems very difficult to me to justify this but
+\item Respose to \todo[inline]{I find the 7 overseas conferences for a 3 year standard grant very excessive. It seems very difficult to me to justify this but
 no attempt is made to do so in the proposal.
 The 30\% PI time is not justified at all in my view. There is no real breakdown of the staff roles and activities in the case for
 support or the JoR.}
 
+The reviewer was concerned that we are planning to attend too many international conferences. We would like this work to have impact beyond the Met Office and ECMWF and this work will have impact if the results are communicated to operational centres and other model developers. We will choose to attend international conferences attended by operational centres. It is also important for the PDRAs to attend conferences for their continued professional development and future career opportunities. So we think that one international conference per PDRA per year and one international conference for Kent and one for Weller is suitable. 
+
+We answer the point about the 30\% PI time at USW above.
+
+We welcome the opportunity to say more about the staff roles at Reading. PI Maynard will contribute to WP1, undertaking the work on parallel performance and profiling. WP3 will be carried out at Reading, with PI Weller supervising the Reading PDRA. Part 3 of WP4 (solving Burger's equation) will be led by PI Weller in Reading. WP5 will be carried out at Reading, led by PI Weller.
+
 \end{enumerate}
 
-\end{itemize}
+\subsubsection*{Responses to Reviewer 171942111}
+
+We appreciate that the reviewer has confidence in our expertise to deliver on this timely project, pleased that they consider our links with the Met Office and ECMWF excellent and pleased they they find our impact plan appropriate.
+
+We respond to the point about the split between the USW PI and PDRA above.
+
+We appreciate the reviewers confidence in our plan to compare a range of methods. The reviewer rightly questions how we plan to generalise the accurate efficient transport on structured grids to arbitrary grids. We have three potential approaches described in WP3. The first two, revisiting implicit time-stepping and local sub-stepping are not a mystery. The third -- generalising FFSL to arbitrary grids is a way in which the cost does not scale with Courant number is more uncertain. ...
+
 %\begin{multicols}{2}
 \renewcommand{\refname}{References}
 \bibliography{Weller,Kent,Maynard}
