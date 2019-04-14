@@ -47,7 +47,7 @@ For the work on COSMIC advection lead by PI Kent, we will follow the approach us
 
 \item \label{it:Kuhnlein} The reviewer states that the involvement of ECMWF could be stronger. While the proposal states that we will meet with K\"uhnlein twice per year, we also say that we will use some of their modelling tools and their letter of support says that they will ``collaborate closely'' and ``meet on a regular basis to discuss the results, and to coordinate our research''. The proposal requests funding for two visits per year for USW staff to visit ECMWF. The Reading staff will not need additional funding because ECMWF is in Reading. Reading staff will be more closely involved with ECMWF because the work on unstructured modelling will take place in Reading and that work will be done in collaboration with ECMWF. We anticipate that much of the close collaboration will be by email and this may need to be very frequent at times of intense activity using the ECMWF modelling tools. We plan to have two formal meetings per year with K\"uhnlein and his staff. However more communication will take place, either by email or in person if needed.
 
-\item \label{it:interlinkages} We welcome the opportunity to say more about interlinkages and impact and answer the points in turn:
+\item \label{it:interlinkages} We welcome the opportunity to say more about interlinkages and impact:
     \begin{enumerate}
     \item Multi-fluid modelling of convection is in its infancy. Our mutli-fluid modelling  will not use ECMWF or Met Office models because OpenFOAM is better suited for this research. Multi-fluid research is part of the Met Office led Paracon project on convection demonstrating Met Office interest in this approach. It is unlikely that multi-fluid convection modelling will be implemented in the ECMWF or Met Office models during the lifetime of this project. I expect that this project will help to inform if and how operational centres implement multi-fluid convection modelling.
     
@@ -72,12 +72,44 @@ The reviewer found the proposal a bit dry and would have appreciated illustratio
 
 \subsubsection*{Responses to Reviewer 167069074}
 
+We are pleased that the reviewer thought that our work will deliver ``important contributions'', that our expertise is ideal and that the reviewer appreciated the ``strong support from the Met Office and ECMWF''. 
 
+\begin{enumerate}
+\item While the reviewer found the proposal ``strong on the strategy and approach'' they asked about how we plan to evaluate the schemes. PI Kent is a world expert on evaluating transport schemes \cite[]{KENT2014b,KENT2014c,KENT2012a,KENTHOLDAWAY,KENT2014a,DCMIP2016}, developing test cases that have been widely used and providing evaluations that have impacted operational models. For the proposed work, we have a number of evaluation plans:
+    \begin{enumerate}
+    \item We will use existing test cases where possible and rank schemes in terms of error, conservation, boundedness, correlation preservation and efficiency metrics. 
+    \item The parallel efficiency will be evaluated using profiling tools, as described in WP1 under PI Maynard's supervision.
+    \item WP2 proposes that a ``new set of idealised test cases will be developed using re-analysis winds''. For these we will calculate error metrics in comparison to a high resolution reference solution and assess how accuracy and stability varies with time step.
+    \item As described in WP3, we will use some of the same evaluation methods as ECMWF.
+    \item Limited test cases exist to evaluate non-linear advection schemes, as described in TC4. More work will be needed to find suitable evaluation of a three dimensional solver for Burger's equation which we feel that we are well placed to deliver this.
+    \item For the multi-fluid modelling the focus is on finding schemes that are stable and accurate for long time steps. Therefore we will compare simulations with long and short time steps. This evaluation is particularly straightforward as it is simple to calculate error metrics between simulations with the same spatial resolution. 
+    \end{enumerate}
+
+\item Respond to \todo[inline]{It is quite surprising to me that there is only a \pounds 5K contribution in kind by the Met Office to the project and no project partner
+contribution from ECMWF. If the work is so central to the development of the new dynamical core of these models one
+would think that there would be a stronger in kind commitment. As a related comment, it would be helpful to have a clearer
+description of the interface between the work the agencies are actively pursuing and the proposed work and why the
+proposed work is needed but not a central plank of the new developments by the operational forecasters. The impact
+statement was also less than convincing in this regard. There was no real strategy proposed which was surprising given
+the stated importance to the agencies benefiting from the impact.}
+
+This work is not a sub-contract from operational centres. We are exploring new, innovative approaches that could be too risky for an operational centre to commit significant resource to.
+
+\item Respond to \todo[inline]{I was less than clear about the roles of the USW staff in the work flow. There is no real description of this. The PDRA will work for the first 24 months so presumably only contributes to WP1 and WP2. Is the PI's 30% to cover the work in WP4?
+What is the role of the student mentioned, are they central to the WPs or add further value to the work programme? There
+is no real detail on this at all.}
+
+\item Respond to \todo[inline]{I find the 7 overseas conferences for a 3 year standard grant very excessive. It seems very difficult to me to justify this but
+no attempt is made to do so in the proposal.
+The 30\% PI time is not justified at all in my view. There is no real breakdown of the staff roles and activities in the case for
+support or the JoR.}
+
+\end{enumerate}
 
 \end{itemize}
 %\begin{multicols}{2}
 \renewcommand{\refname}{References}
-\bibliography{numerics}
+\bibliography{Weller,Kent,Maynard}
 \bibliographystyle{abbrvnat2}
 %\end{multicols}
 
